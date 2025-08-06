@@ -63,7 +63,8 @@ import rememberMessageBarState
 @Composable
 fun HomeGraphScreen(
     navigateToAuth: () -> Unit,
-    navigateToProfile: () -> Unit
+    navigateToProfile: () -> Unit,
+    navigatetoAdminPanel: () -> Unit
 ){
 
     val navController = rememberNavController()
@@ -125,7 +126,7 @@ fun HomeGraphScreen(
                     }
                 )
             },
-            onAdminPanelClick = {}
+            onAdminPanelClick = navigatetoAdminPanel
         )
 
         Box(

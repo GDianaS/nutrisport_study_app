@@ -6,7 +6,6 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-    alias(libs.plugins.serialization)
 }
 
 kotlin {
@@ -22,13 +21,14 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "navigation"
+            baseName = "admin_panel"
             isStatic = true
         }
     }
 
     sourceSets {
-                commonMain.dependencies {
+
+        commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
@@ -38,15 +38,13 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
-            implementation(libs.kotlinx.serialization)
-            implementation(libs.compose.navigation)
+            implementation(libs.messagebar.kmp)
+
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
 
             implementation(project(path = ":shared"))
-            implementation(project(path = ":feature:auth"))
-            implementation(project(path = ":feature:home"))
-                    implementation(project(path = ":feature:profile"))
-                    implementation(project(path = ":feature:admin_panel"))
-
+            implementation(project(path = ":data"))
 
         }
         commonTest.dependencies {
@@ -56,7 +54,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.nutrisport.navigation"
+    namespace = "com.nutrisport.admin_panel"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
