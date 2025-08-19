@@ -29,7 +29,9 @@ dependencyResolutionManagement {
 }
 include(":data")
 include(":di")
+include(":feature:admin_painel:manage_product")
 include(":feature:admin_panel")
+include(":feature:admin_panel:manage_product")
 include(":feature:auth")
 include(":feature:home")
 include(":feature:profile")

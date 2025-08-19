@@ -7,16 +7,27 @@ sealed class Screen {
     //data object -> já que não necessita passar argumentos
     @Serializable
     data object Auth: Screen()
+
     @Serializable
     data object HomeGraph: Screen()
+
     @Serializable
     data object ProductsOverview: Screen()
+
     @Serializable
     data object Cart: Screen()
+
     @Serializable
     data object Categories: Screen()
+
     @Serializable
     data object Profile: Screen()
+
     @Serializable
     data object AdminPanel: Screen()
+
+    @Serializable
+    data class ManageProduct( // data class -> tem um argumento "id"
+        val id: String? = null
+    ): Screen()
 }
